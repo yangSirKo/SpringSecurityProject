@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录页面</title>
+</head>
+<body>
+	<h3>browser默认的登录页面</h3>
+	<h4>表单登录</h4>
+	<form action="authentication/form" method="post">
+		<table>
+			<tr>
+				<td>username</td>
+				<!-- name="username"的值要和 UsernamePasswordAuthentitionFilter中的值要一致
+				才能映射成功 -->
+				<td><input type="text" name="username"></td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>验证码</td>
+				<td><input type="text" name="imageCode"> <img alt=""
+					src="code/image?width=200"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="checkbox" value="true" name="remember-me"/>记住我 </td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="提交" /></td>
+			</tr>
+		</table>
+	</form>
+	
+	<h4>短信登录</h4>
+	<form action="authentication/form" method="post">
+		<table>
+			<tr>
+				<td>手机号</td>
+				<td><input type="text" name="mobile" value="17868812261"></td>
+			</tr>
+			<tr>
+				<td>验证码</td>
+				<td><input type="text" name="smsCode"> 
+				<a href="/code/sms?mobile=17868812261">发送验证码</a>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="提交" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
