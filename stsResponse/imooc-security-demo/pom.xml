@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>imooc-security-demo</artifactId>
+	<parent>
+		<groupId>com.imooc.security</groupId>
+		<artifactId>imooc-security</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../imooc-security</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.imooc.security</groupId>
+			<artifactId>imooc-security-browser</artifactId>
+			<version>${imooc.security.version}</version>
+		</dependency>
+
+		<!-- 测试框架 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+		<!-- Spring aop -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
+		<!-- 生成HTML文档，提供给前端开发者查看，使前后端同时开发 
+			通过localhost：8088/swagger-ui.html访问 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- 添加一个插件，使其重新打包为可执行jar，打包名称为 finalName指定 可执行jar可以放在服务器中，利用 命令"java -jar 
+			项目名.jar"来启动服务。 spring-boot项目不用部署到tomcat中，其内置了tomcat -->
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.3.3.RELEASE</version>
+				<executions>
+					<execution>
+						<goals>
+							<!-- 重新打包 -->
+							<goal>
+  							repackage
+  						</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<finalName>demo</finalName>
+	</build>
+</project>
